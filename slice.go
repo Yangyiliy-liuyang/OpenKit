@@ -68,6 +68,3 @@ func Delete[T any](src []T, index int) ([]T, T, error) {
 func DelectV1(src []int, index int) []int {
 	return []int{}
 }
-func test() {
-
-}
