@@ -1,4 +1,4 @@
-package genericsDS
+package main
 
 type Number interface {
 	int | uint | int64
@@ -11,6 +11,7 @@ func Sum[T Number](vals []T) T {
 	}
 	return res
 }
+
 func Max[T Number](vals []T) T {
 	t := vals[0]
 	for i := 0; i < len(vals); i++ {
@@ -20,6 +21,7 @@ func Max[T Number](vals []T) T {
 	}
 	return t
 }
+
 func Min[T Number](vals []T) T {
 	t := vals[0]
 	for i := 0; i < len(vals); i++ {
@@ -30,6 +32,7 @@ func Min[T Number](vals []T) T {
 	return t
 }
 
+// Find 指定过滤器查找
 func Find[T any](vals []T, filter func(t T) bool) T {
 	for _, v := range vals {
 		if filter(v) {
@@ -40,6 +43,18 @@ func Find[T any](vals []T, filter func(t T) bool) T {
 	return t
 }
 
+// FindAll 指定过滤器查找所有
+func FindAll[T any](vals []T, filter func(t T) bool) []T {
+	var result []T
+	for _, v := range vals {
+		if filter(v) {
+			result = append(result, v)
+		}
+	}
+	return result
+}
+
+// Insert 指定下标位置插入
 func Insert[T any](idx int, val T, vals []T) []T {
 	if idx < 0 || idx > len(vals) {
 		panic("idx不合法")

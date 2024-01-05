@@ -1,4 +1,4 @@
-package genericsDS
+package main
 
 type List[T any] interface {
 	Add(index int, val T)
