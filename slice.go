@@ -70,5 +70,5 @@ func DelectV1(src []int, index int) []int {
 }
 
 func test() {
-
+	//
 }
