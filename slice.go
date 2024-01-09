@@ -69,6 +69,11 @@ func DelectV1(src []int, index int) []int {
 	return []int{}
 }
 
-func test() {
-	//
+// Fix 指定下标位置修改
+func Fix[T any](vals []T, idx int, val T) []T {
+	if idx < 0 || idx > len(vals) {
+		panic("idx不合法")
+	}
+	vals[idx] = val
+	return vals
 }
