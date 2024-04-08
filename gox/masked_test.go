@@ -15,7 +15,8 @@ type MaskedSting string
 
 // 序列化时加密字段
 func (m MaskedSting) MarshalJSON() ([]byte, error) {
-	return []byte("{}"), nil
+	//return []byte("{}"), nil
+	return []byte(`"****"`), nil
 }
 
 func TestMasked(t *testing.T) {
@@ -25,5 +26,7 @@ func TestMasked(t *testing.T) {
 	}
 	val, err := json.Marshal(u)
 	assert.NoError(t, err)
-	t.Log(string(val)) // {"Email":"envkt@example.com","Password":{}}
+	t.Log(string(val))
+	// {"Email":"envkt@example.com","Password":{}}
+	// {"Email":"envkt@example.com","Password":"****"}
 }
