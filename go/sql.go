@@ -1,10 +1,4 @@
-package
-
-import (
-	"context"
-	"database/sql"
-)
-go
+package _go
 
 import (
 	"context"
@@ -15,9 +9,9 @@ import (
 func SQL() {
 	db, err := sql.Open("mysql", "user:password@tcp(127.0.0.1:3306)/dbname")
 	if err != nil {
-        panic(err.Error())
-    }
-    defer db.Close()
+		panic(err.Error())
+	}
+	defer db.Close()
 
 	// 增删改
 	_, err = db.Exec("  INSERT user(name, age) VALUES(?, ?)", "Alice", 18)
@@ -27,7 +21,3 @@ func SQL() {
 	_, err = db.QueryContext(context.Background(), "SELECT * FROM user WHERE id = ?", 1)
 
 }
-
-
-
-
